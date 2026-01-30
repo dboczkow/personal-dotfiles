@@ -26,7 +26,7 @@ fi
 
 # PowerLevel10k
 if [[ ! -f ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme ]]; then
-  git clone https://github.com/romkatv/prowerlevel10k ~/.config/zsh/themes/powerlevel10k/
+  git clone https://github.com/romkatv/prowerlevel10k.git ~/.config/zsh/themes/powerlevel10k/
 fi
 
 # FZF
@@ -46,7 +46,7 @@ fi
 
 # Tmux Plugin Manager
 if [[ ! -f ~/.tmux/plugins/tpm/tpm ]]; then
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  git clone https://github.com/tmux-plugins/tpm.git ~/.tmux/plugins/tpm
 fi
 
 # LSD
@@ -76,7 +76,7 @@ fi
 
 # FZF-tab
 if [[ ! -f ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ]]; then
-  git clone https://github.com/Aloxaf/fzf-tab ~/.config/zsh/plugins/fzf-tab/
+  git clone https://github.com/Aloxaf/fzf-tab.git ~/.config/zsh/plugins/fzf-tab/
 fi
 
 # Fuzzy-sys
@@ -86,7 +86,7 @@ fi
 
 # Fast syntax highlighting
 if [[ ! -f ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]]; then
-  git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.config/zsh/plugins/fast-syntax-highlighting/
+  git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ~/.config/zsh/plugins/fast-syntax-highlighting/
 fi
 
 # Neovim
