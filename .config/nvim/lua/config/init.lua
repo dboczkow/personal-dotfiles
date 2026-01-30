@@ -1,0 +1,6 @@
+require("config.help")
+require("config.pmanager")
+require("config.appearance")
+require("config.options")
+require("config.lsp")
+require("config.filetype_detector")
