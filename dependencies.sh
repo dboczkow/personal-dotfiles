@@ -10,10 +10,12 @@
 echo "📦: Installing missing dependencies"
 
 # Git
-((! $+commands[git])) && sudo pacman -S --noconfirm git
+if ! command -v git &> /dev/null; then 
+  sudo pacman -S --noconfirm git
+fi
 
 # Paru
-if ((! $+commands[paru])); then
+if ! command -v paru &> /dev/null; then
   temp_dir=$(mktemp -d)
   git clone https://aur.archlinux.org/paru-git.git "$temp_dir"
   cd "$temp_dir" || exit 1
@@ -23,56 +25,76 @@ if ((! $+commands[paru])); then
 fi
 
 # PowerLevel10k
-if [[ ! -f ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme]]; then
-  git clone --depth=1 https://github.com/romkatv/prowerlevel10k ~/.config/zsh/themes/powerlevel10k/
+if [[ ! -f ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme ]]; then
+  git clone https://github.com/romkatv/prowerlevel10k ~/.config/zsh/themes/powerlevel10k/
 fi
 
 # FZF
-(( ! $+commands[fzf])) && sudo pacman -S --noconfirm fzf
+if ! command -v fzf &> /dev/null; then 
+  sudo pacman -S --noconfirm fzf
+fi
 
 # Node Version Manager
-(( ! $+commands[nvm])) && sudo pacman -S --noconfirm nvm
+if ! command -v nvm &> /dev/null; then 
+ sudo pacman -S --noconfirm nvm
+fi
 
 # Tmux
-(( ! $+commands[tmux])) && sudo pacman -S --noconfirm tmux
+if ! command -v tmux /dev/null; then
+ sudo pacman -S --noconfirm tmux
+fi
 
 # Tmux Plugin Manager
-if [[ ! -f ~/.tmux/plugins/tpm/tpm]]; then
+if [[ ! -f ~/.tmux/plugins/tpm/tpm ]]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 # LSD
-(( ! $+commands[lsd])) && sudo pacman -S --noconfirm lsd
+if ! command -v lsd &> /dev/null;then 
+  sudo pacman -S --noconfirm lsd
+fi
 
 # Bat
-(( ! $+commands[bat])) && sudo pacman -S --noconfirm bat
+if ! command -v bat &> /dev/null;then
+  sudo pacman -S --noconfirm bat
+fi
 
 # rsync
-(( ! $+commands[rsync])) && sudo pacman -S --noconfirm rsync
+if ! command -v rsync &> /dev/null; then 
+  sudo pacman -S --noconfirm rsync
+fi
 
 # sshs
-(( ! $+commands[sshs])) && sudo pacman -S --noconfirm sshs
+if ! command -v sshs &> /dev/null; then
+  sudo pacman -S --noconfirm sshs
+fi
 
 # glow
-(( ! $+commands[glow])) && paru -S --noconfirm glow-git
+if ! command -v glow &> /dev/null; then
+  paru -S --noconfirm glow-git
+fi
 
 # FZF-tab
-if [[ ! -f ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh]]; then
+if [[ ! -f ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ]]; then
   git clone https://github.com/Aloxaf/fzf-tab ~/.config/zsh/plugins/fzf-tab/
 fi
 
 # Fuzzy-sys
-if [[ ! -f ~/.config/zsh/plugins/fuzzy-sys/fuzzy-sys.plugin.zsh]]; then
+if [[ ! -f ~/.config/zsh/plugins/fuzzy-sys/fuzzy-sys.plugin.zsh ]]; then
   git clone https://github.com/NullSense/fuzzy-sys.git ~/.config/zsh/plugins/fuzzy-sys/
 fi
 
 # Fast syntax highlighting
-if [[ ! -f ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh]]; then
+if [[ ! -f ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]]; then
   git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ~/.config/zsh/plugins/fast-syntax-highlighting/
 fi
 
 # Neovim
-((! $+commands[nvim])) && sudo pacman -S --noconfirm neovim
+if ! command -v nvim &> /dev/null; then
+  sudo pacman -S --noconfirm neovim
+fi
 
 # yazi
-((! $+commands[ya])) && paru -S --noconfirm yazi-git
+if ! command -v ya &> /dev/null; then
+  paru -S --noconfirm yazi-git
+fi
