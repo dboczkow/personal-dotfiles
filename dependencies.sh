@@ -26,7 +26,7 @@ fi
 
 # PowerLevel10k
 if [[ ! -f ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme ]]; then
-  git clone https://github.com/romkatv/prowerlevel10k.git ~/.config/zsh/themes/powerlevel10k/
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k ~/.config/zsh/themes/powerlevel10k/ 
 fi
 
 # FZF
