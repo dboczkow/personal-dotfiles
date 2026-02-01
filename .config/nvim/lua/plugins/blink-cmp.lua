@@ -3,7 +3,6 @@ return {
     'saghen/blink.cmp',
     dependencies = { 'rafamadriz/friendly-snippets' },
     version = '1.*',
-    build = 'cargo build --release',
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
@@ -69,7 +68,7 @@ return {
       --
       -- See the fuzzy documentation for more information
       fuzzy = {
-        implementation = "prefer_rust",
+        implementation = "prefer_rust_with_warning",
       }
     },
     opts_extend = { "sources.default" }

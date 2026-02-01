@@ -8,10 +8,6 @@
 
 
 # Powerlevel10k
-if [[ ! -f ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme]]; then
-  git clone --depth=1 https://github.com/romkatv/prowerlevel10k.git ~/.config/zsh/themes/
-fi
-
 source /home/msafro12/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
