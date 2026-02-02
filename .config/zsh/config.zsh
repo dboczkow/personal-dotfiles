@@ -44,3 +44,6 @@ source /home/msafro12/.config/zsh/aliases.zsh
 
 ## Hooks ##
 source /home/msafro12/.config/zsh/hooks.zsh
+
+### Start with fastfetch on start ###
+fastfetch

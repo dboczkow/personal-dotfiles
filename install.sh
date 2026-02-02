@@ -1,11 +1,27 @@
 #!/usr/bin/env bash
 
-#   ____                            _                 _           
-#  |  _ \  ___ _ __   ___ _ __   __| | ___ _ __   ___(_) ___  ___ 
-#  | | | |/ _ \ '_ \ / _ \ '_ \ / _` |/ _ \ '_ \ / __| |/ _ \/ __|
-#  | |_| |  __/ |_) |  __/ | | | (_| |  __/ | | | (__| |  __/\__ \
-#  |____/ \___| .__/ \___|_| |_|\__,_|\___|_| |_|\___|_|\___||___/
-#             |_|                                                 
+#   ___           _        _ _ 
+#  |_ _|_ __  ___| |_ __ _| | |
+#   | || '_ \/ __| __/ _` | | |
+#   | || | | \__ \ || (_| | | |
+#  |___|_| |_|___/\__\__,_|_|_|
+#
+
+
+cd ..
+mv personal-dotfiles $HOME/.dotfiles
+
+cd $HOME/.dotfiles
+
+echo "⬆️: Update mirrors and system"
+
+sudo pacman -Syyuu --noconfirm
+
+echo "🙈: Installing stow"
+
+sudo pacman -S --noconfirm stow
+
+stow .
 
 echo "📦: Installing missing dependencies"
 
@@ -97,4 +113,19 @@ fi
 # yazi
 if ! command -v ya &> /dev/null; then
   paru -S --noconfirm yazi-git
+fi
+
+# tesseract
+if ! command -v tesseract &> /dev/null; then
+  paru -S --noconfirm tesseract tesseract-data-eng tesseract-data-osd tesseract-data-pol
+fi
+
+# wl-copy
+if ! command -v wl-copy &> /dev/null; then
+  paru -S --noconfirm wl-clipboard
+fi
+
+# fastfetch (for swag)
+if ! command -v fastfetch &> /dev/null; then
+  paru -S --noconfirm fastfetch
 fi
