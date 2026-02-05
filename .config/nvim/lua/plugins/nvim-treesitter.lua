@@ -3,6 +3,9 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		lazy = false,
 		build = ":TSUpdate",
+		opts = {
+			ignore_install = { "yazi", "notify", "jsonc", "noice" },
+		},
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
