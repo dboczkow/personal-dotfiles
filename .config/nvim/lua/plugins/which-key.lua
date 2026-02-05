@@ -77,11 +77,11 @@ return {
 				{ "<leader>c", group = "Code" },
 				{ "<leader>ci", vim.cmd.Mason, desc = "Install Language Server" },
 				{ "<leader>ca", vim.lsp.buf.code_action, desc = "Action" },
-				{ "<leader>cr", vim.lsp.buf.rename, desc = "Refactor" },
+				{ "<leader>cR", vim.lsp.buf.rename, desc = "Refactor" },
+				{ "<leader>cr", vim.lsp.buf.references, desc = "References" },
 				{ "<leader>cf", vim.lsp.buf.format, desc = "Format" },
 
 				{ "<leader>cg", group = "Go To" },
-				{ "<leader>cgr", vim.lsp.buf.references, desc = "References" },
 				{ "<leader>cgd", vim.lsp.buf.definition, desc = "Definition" },
 				{ "<leader>cgD", vim.lsp.buf.declaration, desc = "Declaration" },
 				{ "<leader>cgi", vim.lsp.buf.implementation, desc = "Implementation" },
@@ -539,7 +539,7 @@ return {
 				wk.show("C<leader>")
 			end)
 
-			vim.keymap.set("n", "<C-k>", function()
+			vim.keymap.set("n", "<C-.>", function()
 				vim.lsp.buf.hover({
 					border = "rounded",
 					winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
@@ -552,11 +552,11 @@ return {
 			vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected part up" })
 			vim.keymap.del("n", "<C-d>")
 			vim.keymap.del("n", "<C-u>")
-			vim.keymap.set("n", "<C-j>", "<C-d>", { noremap = true })
-			vim.keymap.set("n", "<C-k>", "<C-u>", { noremap = true })
 			vim.keymap.set("n", "<Esc>", function()
 				noice.cmd("dismiss")
 			end, { desc = "Dismiss notification" })
+			vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
+			vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
 		end,
 	},
 }
