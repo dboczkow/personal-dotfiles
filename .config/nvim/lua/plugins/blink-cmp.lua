@@ -18,7 +18,9 @@ return {
       -- C-k: Toggle signature help (if signature.enabled = true)
       --
       -- See :h blink-cmp-config-keymap for defining your own keymap
-      keymap = {preset = 'enter'},
+      keymap = {
+        preset = 'enter',
+      },
 
       appearance = {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -36,8 +38,8 @@ return {
           },
           draw = {
             columns = {
-              {"kind_icon", "label", gap=1},
-              {"source_name"}
+              { "kind_icon",  "label", gap = 1 },
+              { "source_name" }
             }
           },
         },

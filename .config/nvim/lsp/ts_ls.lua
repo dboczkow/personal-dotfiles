@@ -14,6 +14,9 @@ return {
     },
     root_dir = util.root_pattern('tsconfig.json', 'jsconfig.json', 'package.json', '.git'),
     single_file_support = true,
+    on_attach = function(client)
+      client.server_capabilities.documentFormattingProvider = false
+    end
   },
   docs = {
     description = [[
