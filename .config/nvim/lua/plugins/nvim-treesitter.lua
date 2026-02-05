@@ -133,8 +133,8 @@ return {
 	},
 	{
 		"mks-h/treesitter-autoinstall.nvim",
-    init = function ()
-      require("treesitter-autoinstall").setup()
-    end
+		init = function()
+			require("treesitter-autoinstall").setup()
+		end,
 	},
 }

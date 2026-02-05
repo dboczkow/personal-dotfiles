@@ -37,7 +37,7 @@
   "sudo.nvim": { "branch": "main", "commit": "9ab546adfea5331d24cb6086a7a97c5ec8d5b0b2" },
   "telescope-nodescripts.nvim": { "branch": "master", "commit": "319da843933a5e6edb61bb177243fc0fdc48c51c" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
-  "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
+  "telescope.nvim": { "branch": "master", "commit": "ad7d9580338354ccc136e5b8f0aa4f880434dcdc" },
   "tmux-awesome-manager.nvim": { "branch": "master", "commit": "38022c7ccf1cbb676c2a6b5997a9ac30602e2f7d" },
   "treesitter-autoinstall.nvim": { "branch": "main", "commit": "6582fa64957b6b1ffb31c327d14f6eb0076a7788" },
   "vim-kitty": { "branch": "main", "commit": "cd72f2d9cfee8d6aba5a180a5ac3ca265b5d3a46" },
