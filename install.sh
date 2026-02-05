@@ -129,3 +129,8 @@ fi
 if ! command -v fastfetch &> /dev/null; then
   paru -S --noconfirm fastfetch
 fi
+
+# fd
+if ! command -v fd &> /dev/null; then
+  paru -S --noconfirm fd
+fi
