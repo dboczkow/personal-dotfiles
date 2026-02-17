@@ -1,3 +1,5 @@
+-- Testóje spell czeking --
+
 -- Indentation
 vim.opt.autoindent = true
 vim.opt.smartindent = true
@@ -13,7 +15,7 @@ vim.opt.autowrite = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
-vim.opt.undodir = os.getenv('HOME') .. '/.local/share/vim/history'
+vim.opt.undodir = os.getenv("HOME") .. "/.local/share/vim/history"
 vim.opt.encoding = "utf-8"
 
 -- Search
@@ -29,7 +31,7 @@ vim.opt.timeoutlen = 500
 vim.opt.ttimeoutlen = 10
 
 -- Terminal
-vim.o.shell = '/usr/bin/zsh'
+vim.o.shell = "/usr/bin/zsh"
 
 -- History and completion
 vim.opt.history = 1000
@@ -47,13 +49,13 @@ vim.opt.mouse = "a"
 vim.opt.clipboard = "unnamedplus"
 
 -- Hightlight on yank
-vim.api.nvim_create_autocmd('TextYankPost', {
-  group = vim.api.nvim_create_augroup('highlight_yank', {}),
-  desc = 'Hightlight selection on yank',
-  pattern = '*',
-  callback = function()
-    vim.highlight.on_yank { higroup = 'IncSearch', timeout = 500 }
-  end,
+vim.api.nvim_create_autocmd("TextYankPost", {
+	group = vim.api.nvim_create_augroup("highlight_yank", {}),
+	desc = "Hightlight selection on yank",
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 250 })
+	end,
 })
 
 -- Buffer/window options
@@ -65,8 +67,9 @@ vim.opt.equalalways = false
 -- Miscellaneous
 vim.opt.errorbells = false
 vim.opt.belloff = "all"
-vim.opt.spell = false
-vim.opt.spelllang = "en_us"
+vim.opt.spell = true
+vim.opt.spelllang = "en_us,pl"
+
 vim.opt.updatetime = 300
 vim.opt.clipboard = "unnamedplus"
 

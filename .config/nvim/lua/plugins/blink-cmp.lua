@@ -19,7 +19,7 @@ return {
 			--
 			-- See :h blink-cmp-config-keymap for defining your own keymap
 			keymap = {
-				preset = "enter",
+				preset = "super-tab",
 			},
 
 			appearance = {
@@ -30,11 +30,18 @@ return {
 
 			-- (Default) Only show the documentation popup when manually triggered
 			completion = {
+				ghost_text = { enabled = true },
+				list = {
+					selection = {
+						preselect = true,
+						auto_insert = false,
+					},
+				},
 				menu = {
 					border = "rounded",
 					draw = {
 						columns = {
-							{ "kind_icon", "label", gap = 1 },
+							{ "kind_icon", "label", "label_description", gap = 1 },
 							{ "source_name" },
 						},
 					},

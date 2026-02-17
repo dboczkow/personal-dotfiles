@@ -72,13 +72,33 @@ return {
 				vim.cmd("startinsert")
 			end
 
+			local find_and_replace_in_file = function()
+				local search_term = vim.fn.input("Wyszukaj: ")
+				if search_term == "" then
+					return
+				end
+
+				vim.cmd("silent! vimgrep /" .. vim.fn.escape(search_term, "/") .. "/ %")
+				vim.cmd("copen")
+
+				local replace_term = vim.fn.input("Zamień na: ")
+				if replace_term ~= "" then
+					vim.cmd(
+						"cfdo %s/"
+							.. vim.fn.escape(search_term, "/")
+							.. "/"
+							.. vim.fn.escape(replace_term, "/")
+							.. "/c | update"
+					)
+				end
+			end
+
 			wk.add({
 				{ "<leader>", desc = "Menu" },
 				{ "<leader>c", group = "Code" },
 				{ "<leader>ci", vim.cmd.Mason, desc = "Install Language Server" },
 				{ "<leader>ca", vim.lsp.buf.code_action, desc = "Action" },
-				{ "<leader>cR", vim.lsp.buf.rename, desc = "Refactor" },
-				{ "<leader>cr", vim.lsp.buf.references, desc = "References" },
+				{ "<leader>cr", telescope.lsp_references, desc = "References" },
 				{ "<leader>cf", vim.lsp.buf.format, desc = "Format" },
 
 				{ "<leader>cg", group = "Go To" },
@@ -89,6 +109,8 @@ return {
 				{ "<leader>cl", group = "Lint" },
 				{ "<leader>clh", vim.diagnostic.goto_prev, desc = "Previous" },
 				{ "<leader>cll", vim.diagnostic.goto_next, desc = "Next" },
+
+				{ "<leader>cs", telescope.spell_suggest, desc = "Spell suggestion" },
 
 				{ "<leader>d", group = "Debugger" },
 				{ "<leader>dc", dap.continue, desc = "Continue" },
@@ -115,6 +137,7 @@ return {
 				{ "<leader>dsa", dap.step_out, desc = "Out" },
 
 				{ "<leader>n", group = "New", icon = "" },
+				{ "<leader>ns", ":enew<cr>", desc = "Scratch file", icon = "󱞂" },
 				{ "<leader>nf", create_file_in_project, desc = "File", icon = "" },
 
 				{ "<leader>o", group = "Open", icon = "" },
@@ -123,12 +146,11 @@ return {
 				{ "<leader>of", telescope.find_files, desc = "File" },
 
 				{ "<leader>e", group = "Edit", icon = "" },
+				{ "<leader>er", vim.lsp.buf.rename, desc = "Refactor" },
 				{ "<leader>ef", group = "File" },
-				{ "<leader>eff", "/", desc = "Find" },
-				{ "<leader>efr", ":%s/", desc = "Replace" },
+				{ "<leader>efr", find_and_replace_in_file, desc = "Replace" },
 				{ "<leader>efq", ":hol<CR>", desc = "Cancel" },
-				{ "<leader>ep", group = "In Project", icon = "" },
-				{ "<leader>epf", telescope.live_grep, desc = "Find" },
+				{ "<leader>eff", telescope.live_grep, desc = "Find" },
 
 				{ "<leader>s", group = "Save", icon = { icon = "", color = "green" } },
 				{ "<leader>ss", ":w<CR>", desc = "Save" },
@@ -357,7 +379,7 @@ return {
 					},
 					{ "<leader>rp", group = "Packages", icon = { icon = "󰏓", color = "green" } },
 					{ "<leader>rp", ":!npm install<CR>", desc = "Install", icon = { icon = "󰏔", color = "blue" } },
-					{ "<leader>nrd", ":!npm update<CR>", desc = "Update", icon = { icon = "󰏕", color = "green" } },
+					{ "<leader>rd", ":!npm update<CR>", desc = "Update", icon = { icon = "󰏕", color = "green" } },
 				})
 			end
 
