@@ -16,6 +16,7 @@ return {
 			local dap = require("dap")
 			local dap_ui = require("dap.ui.widgets")
 			local noice = require("noice")
+			local flash = require("flash")
 
 			local function get_project_root()
 				local handle = io.popen("git rev-parse --show-toplevel 2> /dev/null")
@@ -70,27 +71,6 @@ return {
 				vim.cmd("vsplit")
 				vim.cmd("terminal lazygit")
 				vim.cmd("startinsert")
-			end
-
-			local find_and_replace_in_file = function()
-				local search_term = vim.fn.input("Wyszukaj: ")
-				if search_term == "" then
-					return
-				end
-
-				vim.cmd("silent! vimgrep /" .. vim.fn.escape(search_term, "/") .. "/ %")
-				vim.cmd("copen")
-
-				local replace_term = vim.fn.input("Zamień na: ")
-				if replace_term ~= "" then
-					vim.cmd(
-						"cfdo %s/"
-							.. vim.fn.escape(search_term, "/")
-							.. "/"
-							.. vim.fn.escape(replace_term, "/")
-							.. "/c | update"
-					)
-				end
 			end
 
 			wk.add({
@@ -148,7 +128,6 @@ return {
 				{ "<leader>e", group = "Edit", icon = "" },
 				{ "<leader>er", vim.lsp.buf.rename, desc = "Refactor" },
 				{ "<leader>ef", group = "File" },
-				{ "<leader>efr", find_and_replace_in_file, desc = "Replace" },
 				{ "<leader>efq", ":hol<CR>", desc = "Cancel" },
 				{ "<leader>eff", telescope.live_grep, desc = "Find" },
 
@@ -185,15 +164,18 @@ return {
 				{ "<leader>qY", ":q!<CR>", desc = "Yes, Im sure!", icon = { icon = "", color = "yellow" } },
 				{ "<leader>qn", desc = "No", icon = { icon = "󰜺", color = "red" } },
 
-				{ "s", group = "Split" },
-				{ "sh", ":split<CR>", desc = "Horizontal", icon = "" },
-				{ "sv", ":vsplit<CR>", desc = "Vertical", icon = "" },
+				{ "<leader>v", group = "View" },
+				{ "<leader>vs", group = "Split" },
+				{ "<leader>vsh", "split<CR>", desc = "Horizontal", icon = "" },
+				{ "<leader>vsv", ":vsplit<CR>", desc = "Vertical", icon = "" },
 
-				{ "<leader>t", group = "tabs" },
-				{ "<leader>th", ":tabprev<cr>", desc = "previous", icon = "" },
-				{ "<leader>tl", ":tabprev<cr>", desc = "next", icon = "" },
-				{ "<leader>tn", ":tabnew<cr>", desc = "new", icon = "󰝜" },
-				{ "<leader>tq", ":tabclose<cr>", desc = "close", icon = "󰭌" },
+				{ "<leader>vt", group = "Tab" },
+				{ "<leader>vth", ":tabprev<cr>", desc = "previous", icon = "" },
+				{ "<leader>vtl", ":tabprev<cr>", desc = "next", icon = "" },
+				{ "<leader>vtn", ":tabnew<cr>", desc = "new", icon = "󰝜" },
+				{ "<leader>vtq", ":tabclose<cr>", desc = "close", icon = "󰭌" },
+				{ "<leader>vt", group = "tabs" },
+
 				{ "<leader>?", ":VimMoves<CR>", desc = "Help", icon = "󰞋" },
 				{
 					mode = { "t" },
@@ -567,6 +549,9 @@ return {
 					winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
 				})
 			end, { noremap = true, silent = true, desc = "LSP Hover" })
+			vim.keymap.set("n", "w", function()
+				require("flash").toggle()
+			end)
 
 			vim.keymap.set("n", "<C-d>", "<C-d>zz")
 			vim.keymap.set("n", "<C-u>", "<C-u>zz")
