@@ -80,11 +80,13 @@ return {
 				{ "<leader>ca", vim.lsp.buf.code_action, desc = "Action" },
 				{ "<leader>cr", telescope.lsp_references, desc = "References" },
 				{ "<leader>cf", vim.lsp.buf.format, desc = "Format" },
+				{ "<leader>ct", ":TodoTelescope<CR>", desc = "To Do List" },
 
 				{ "<leader>cg", group = "Go To" },
 				{ "<leader>cgd", vim.lsp.buf.definition, desc = "Definition" },
 				{ "<leader>cgD", vim.lsp.buf.declaration, desc = "Declaration" },
 				{ "<leader>cgi", vim.lsp.buf.implementation, desc = "Implementation" },
+				{ "<leader>cgs", telescope.lsp_document_symbols, desc = "Symbols" },
 
 				{ "<leader>cl", group = "Lint" },
 				{ "<leader>clh", vim.diagnostic.goto_prev, desc = "Previous" },

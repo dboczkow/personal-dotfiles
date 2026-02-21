@@ -14,7 +14,7 @@ set -o ignoreeof # ignore ctrl-d to close terminal
 ## FZF functions ##
 
 bindkey '^[[A' fzf-history-widget   # history search
-bindkey "^F" fzf-file-widget        # find file
+bindkey "^F" fzf-file-widget     # find file
 bindkey "^D" fzf-cd-widget
 
 bindkey "^[[1;5C" forward-word

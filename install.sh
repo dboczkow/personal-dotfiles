@@ -134,3 +134,8 @@ fi
 if ! command -v fd &> /dev/null; then
   paru -S --noconfirm fd
 fi
+
+# posting
+if ! command -v posting %> /dev/null; then
+  paru -S --noconfirm posting
+fi
