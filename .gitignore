@@ -118,10 +118,11 @@ tags
 [._]*.un~
 
 # tmux plugins
-/.config/tmux/plugins/tmux/
-/.config/tmux/plugins/tmux-sensible/
-/.config/tmux/plugins/tpm/
-/.config/tmux/plugins/vim-tmux-navigator/
+/.config/tmux/plugins/tmux
+/.config/tmux/plugins/tmux-open
+/.config/tmux/plugins/tmux-sensible
+/.config/tmux/plugins/tpm
+/.config/tmux/plugins/vim-tmux-navigator
 
 # zsh plugins
 .config/zsh/plugins/fast-syntax-highlighting/

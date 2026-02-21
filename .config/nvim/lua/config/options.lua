@@ -1,5 +1,3 @@
--- Testóje spell czeking --
-
 -- Indentation
 vim.opt.autoindent = true
 vim.opt.smartindent = true
