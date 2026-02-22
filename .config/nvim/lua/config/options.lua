@@ -15,7 +15,7 @@ vim.opt.autowrite = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
-vim.opt.undodir = os.getenv("HOME") .. "/.local/share/vim/history"
+vim.opt.undodir = os.getenv("HOME") .. "/.cache/vim/history"
 vim.opt.encoding = "utf-8"
 
 -- Search
@@ -71,7 +71,6 @@ vim.opt.spell = true
 vim.opt.spelllang = "en_us,pl"
 
 vim.opt.updatetime = 300
-vim.opt.clipboard = "unnamedplus"
 
 -- Completion options
 vim.opt.completeopt = { "menuone", "noselect", "noinsert" }

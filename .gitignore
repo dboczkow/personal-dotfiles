@@ -124,9 +124,11 @@ tags
 /.config/tmux/plugins/vim-tmux-navigator/
 
 # zsh plugins
-.config/zsh/plugins/fast-syntax-highlighting/
-.config/zsh/plugins/fuzzy-sys/
-.config/zsh/plugins/fzf-tab/
+/.config/zsh/plugins/fast-syntax-highlighting/
+/.config/zsh/plugins/fuzzy-sys/
+/.config/zsh/plugins/fzf-tab/
 
 # zsh themes
-.config/zsh/themes/powerlevel10k
+/.config/zsh/themes/powerlevel10k
+
+/.config/nvim/lazy-lock.json
