@@ -20,7 +20,6 @@ alias mv="move_files"
 alias tree="lsd --tree"
 alias daemons="fuzzy-sys"
 alias ping="gping --clear"
-alias ssh="sshui"
 alias postman="posting"
 ## Suffix Aliases ##
 alias -s md="glow -p"

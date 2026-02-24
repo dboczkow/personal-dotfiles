@@ -16,9 +16,9 @@ return {
 		config = function()
 			require("noice").setup({
 				lsp = {
-					enabled = false,
+					enabled = true,
 					hover = {
-						enabled = false,
+						enabled = true,
 					},
 				},
 				presets = {

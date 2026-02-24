@@ -88,9 +88,7 @@ return {
 				{ "<leader>cgi", vim.lsp.buf.implementation, desc = "Implementation" },
 				{ "<leader>cgs", telescope.lsp_document_symbols, desc = "Symbols" },
 
-				{ "<leader>cl", group = "Lint" },
-				{ "<leader>clh", vim.diagnostic.goto_prev, desc = "Previous" },
-				{ "<leader>cll", vim.diagnostic.goto_next, desc = "Next" },
+				{ "<leader>cl", telescope.diagnostics, desc = "Lint" },
 
 				{ "<leader>cs", telescope.spell_suggest, desc = "Spell suggestion" },
 
