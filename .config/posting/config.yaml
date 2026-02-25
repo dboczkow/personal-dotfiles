@@ -1,1 +1,5 @@
 theme: catppuccin-mocha-mauve
+layout: horizontal
+heading:
+  visible: false
+  show_host: true

@@ -23,3 +23,6 @@ alias ping="gping --clear"
 alias postman="posting"
 ## Suffix Aliases ##
 alias -s md="glow -p"
+
+alias vi="nvim"
+alias vim="nvim"

@@ -73,6 +73,12 @@ return {
 				vim.cmd("startinsert")
 			end
 
+			local postman = function()
+				vim.cmd("30split")
+				vim.cmd("terminal posting")
+				vim.cmd("startinsert")
+			end
+
 			wk.add({
 				{ "<leader>", desc = "Menu" },
 				{ "<leader>c", group = "Code" },
@@ -157,6 +163,8 @@ return {
 				{ "<leader>`ns", terminalSmall, desc = "Small", icon = "󱂩" },
 
 				{ "<leader>g", git, desc = "Git" },
+
+				{ "<leader>p", postman, desc = "Api Test" },
 
 				{ "<leader>q", group = "Quit/Close" },
 				{ "<leader>qy", ":q<CR>", desc = "Yes", icon = { icon = "", color = "green" } },
@@ -353,12 +361,7 @@ return {
 			if vim.fn.filereadable(pkg_path) == 1 then
 				wk.add({
 					{ "<leader>r", group = "Run", icon = { icon = "", color = "green" } },
-					{
-						"<leader>rs",
-						":lua require('telescope').extensions.nodescripts.run({})<CR>",
-						desc = "Scripts",
-						icon = { icon = "󰯁", color = "yellow" },
-					},
+					{ "<leader>rs", ":NpmScripts<CR>", desc = "Scripts", icon = { icon = "󰯁", color = "yellow" } },
 					{ "<leader>rp", group = "Packages", icon = { icon = "󰏓", color = "green" } },
 					{ "<leader>rp", ":!npm install<CR>", desc = "Install", icon = { icon = "󰏔", color = "blue" } },
 					{ "<leader>rd", ":!npm update<CR>", desc = "Update", icon = { icon = "󰏕", color = "green" } },
