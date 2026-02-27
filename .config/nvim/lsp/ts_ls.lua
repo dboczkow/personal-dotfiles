@@ -1,25 +1,25 @@
-local util = require 'lspconfig.util'
+local util = require("lspconfig.util")
 
 return {
-  default_config = {
-    init_options = { hostInfo = 'neovim' },
-    cmd = { 'typescript-language-server', '--stdio' },
-    filetypes = {
-      'javascript',
-      'javascriptreact',
-      'javascript.jsx',
-      'typescript',
-      'typescriptreact',
-      'typescript.tsx',
-    },
-    root_dir = util.root_pattern('tsconfig.json', 'jsconfig.json', 'package.json', '.git'),
-    single_file_support = true,
-    on_attach = function(client)
-      client.server_capabilities.documentFormattingProvider = false
-    end
-  },
-  docs = {
-    description = [[
+	default_config = {
+		init_options = { hostInfo = "neovim" },
+		cmd = { "typescript-language-server", "--stdio" },
+		filetypes = {
+			"javascript",
+			"javascriptreact",
+			"javascript.jsx",
+			"typescript",
+			"typescriptreact",
+			"typescript.tsx",
+		},
+		root_dir = util.root_pattern("tsconfig.json", "jsconfig.json", "package.json", ".git"),
+		single_file_support = true,
+		on_attach = function(client)
+			client.server_capabilities.documentFormattingProvider = false
+		end,
+	},
+	docs = {
+		description = [[
 https://github.com/typescript-language-server/typescript-language-server
 
 `ts_ls`, aka `typescript-language-server`, is a Language Server Protocol implementation for TypeScript wrapping `tsserver`. Note that `ts_ls` is not `tsserver`.
@@ -86,5 +86,5 @@ require'lspconfig'.ts_ls.setup{
 
 `filetypes` is extended here to include Vue SFC.
 ]],
-  },
+	},
 }

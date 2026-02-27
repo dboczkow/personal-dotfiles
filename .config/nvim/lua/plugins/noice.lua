@@ -19,6 +19,14 @@ return {
 					enabled = true,
 					hover = {
 						enabled = true,
+						opts = {
+							border = "rounded",
+							position = {
+								relative = "cursor",
+								row = 2,
+								col = 0,
+							},
+						},
 					},
 				},
 				presets = {

@@ -9,16 +9,6 @@
 #
 
 ### Check if base stuff is installed, if not install them ###
-((! $+commands[git])) && sudo pacman -S --noconfirm git
-if ((! $+commands[paru])); then
-  temp_dir=$(mktemp -d)
-  git clone https://aur.archlinux.org/paru-git.git "$temp_dir"
-  cd "$temp_dir" || exit 1
-  makepkg -si --noconfirm
-  cd 
-  rm -rf "$temp_dir"
-fi
-
 HISTFILE=~/.cache/zshhistfile
 HISTSIZE=9999
 SAVEHIST=99999
@@ -45,5 +35,5 @@ source /home/msafro12/.config/zsh/aliases.zsh
 ## Hooks ##
 source /home/msafro12/.config/zsh/hooks.zsh
 
-### Start with fastfetch on start ###
+### Start with fastfetch on start for SWAG ###
 fastfetch

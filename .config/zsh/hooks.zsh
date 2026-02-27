@@ -7,7 +7,7 @@
 #
 
 chpwd() {
-  lsd
+  lsd --config-file $HOME/.config/lsd/hook.yaml
 }
 
 function yy() {

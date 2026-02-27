@@ -1,0 +1,124 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+final_space: true
+version: 4
+transient_prompt:
+  foreground: green
+  template: " "
+blocks:
+  - type: prompt
+    alignment: left
+    newline: true
+    filler: ""
+    overflow: ""
+    leading_diamond: ""
+    trailing_diamond: ""
+    force: false
+    segments:
+      - type: path
+        style: plain
+        template: "{{.Path}}"
+        max_width: 0
+        min_width: 0
+        interactive: false
+        alias: ""
+        background: transparent
+        foreground: magenta
+        options:
+          folder_separator_icon: /
+          home_icon: "~"
+          folder_icon: ..
+          windows_registry_icon: 
+          style: short
+          mapped_locations_enabled: true
+          max_depth: 1
+          max_width: 0
+          mixed_threshold: 4
+          hide_root_location: false
+          cycle_folder_separator: false
+          gitdir_format: ""
+          display_cygpath: false
+          display_root: false
+          dir_length: 1
+          full_length_dirs: 1
+          mapped_locations:
+            /: /
+
+  - type: rprompt
+    segments:
+      - type: node
+        style: accordion
+        template: " 󰎙"
+        foreground: green
+        placeholder: ...
+      - type: npm
+        style: plain
+        template: " "
+        foreground: red
+      - type: pnpm
+        style: plain
+        template: " "
+        foreground: "yellow"
+      - type: bun
+        style: plain
+        template: " "
+        foreground: "magenta"
+      - type: flutter
+        style: plain
+        template: " "
+        foreground: "blue"
+      - type: angular
+        style: powerline
+        template: " "
+      - type: react
+        style: plain
+        template: " 󰜈"
+        foreground: blue
+      - type: python
+        style: plain
+        template: "<green>(󰣩 {{ .Venv }})</green> <yellow></yellow>"
+      - type: java
+        style: plain
+        template: " "
+        foreground: yellow
+      - type: go
+        style: plain
+        template: " 󰟓"
+        foreground: blue
+      - type: rust
+        style: plain
+        template: " "
+        foreground: lightRed
+      - type: lua
+        style: plain
+        template: " "
+        foreground: "blue"
+      - type: project
+        style: plain
+        template: "<black> </black> <yellow> {{ .Version }}</yellow>"
+      - type: text
+        style: plain
+        template: "<black> </black> <default></default> <red>{{ .UserName }}</red><black>@</black><blue>{{ .HostName }}</blue>"
+      - type: status
+        style: plain
+        template: "<black> </black> <red>{{if .Error}} : {{ .Code }} {{ end }}</red>"
+      - type: executiontime
+        style: powerline
+        template: "<black> </black> <yellow> {{ .FormattedMs }}</yellow>"
+        options:
+          always_enabled: false
+          threshold: 5000
+          style: austin
+  - type: prompt
+    alignment: left
+    newline: true
+    segments:
+      - type: text
+        style: plain
+        template: ""
+        foreground_templates:
+          - "{{ if gt .Code 0}}red{{end}}"
+          - "{{ if eq .Code 0}}green{{end}}"
+        interactive: false
+        alias: ""
+        placeholder: ...

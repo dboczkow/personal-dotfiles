@@ -14,7 +14,11 @@ move_files() {
 
 ## Aliases ##
 alias ls="lsd -A"
+alias l="lsd"
+alias ll="lsd -l"
+alias lt="lsd --tree"
 alias cat="bat"
+alias df="duf"
 alias cp="rsync -rlkHpXogtUh --specials --info=progress2 "$1" "$2""
 alias mv="move_files"
 alias tree="lsd --tree"

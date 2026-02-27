@@ -13,8 +13,6 @@ return {
 			})
 
 			local telescope = require("telescope.builtin")
-			local dap = require("dap")
-			local dap_ui = require("dap.ui.widgets")
 			local noice = require("noice")
 			local flash = require("flash")
 
@@ -87,55 +85,28 @@ return {
 				{ "<leader>cr", telescope.lsp_references, desc = "References" },
 				{ "<leader>cf", vim.lsp.buf.format, desc = "Format" },
 				{ "<leader>ct", ":TodoTelescope<CR>", desc = "To Do List" },
-
-				{ "<leader>cg", group = "Go To" },
-				{ "<leader>cgd", vim.lsp.buf.definition, desc = "Definition" },
-				{ "<leader>cgD", vim.lsp.buf.declaration, desc = "Declaration" },
-				{ "<leader>cgi", vim.lsp.buf.implementation, desc = "Implementation" },
-				{ "<leader>cgs", telescope.lsp_document_symbols, desc = "Symbols" },
-
 				{ "<leader>cl", telescope.diagnostics, desc = "Lint" },
-
 				{ "<leader>cs", telescope.spell_suggest, desc = "Spell suggestion" },
-
-				{ "<leader>d", group = "Debugger" },
-				{ "<leader>dc", dap.continue, desc = "Continue" },
-
-				{ "<leader>db", group = "Breakpoint" },
-				{ "<leader>dbt", dap.toggle_breakpoint, desc = "Toggle" },
-				{ "<leader>dbs", dap.set_breakpoint, desc = "Set" },
-				{
-					"<leader>dbl",
-					function()
-						dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
-					end,
-					desc = "Log point",
-				},
-
-				{ "<leader>dt", group = "Tooltip" },
-				{ "<leader>dtt", dap_ui.hover, desc = "Toggle" },
-				{ "<leader>dtf", dap_ui.hover, desc = "Frames" },
-				{ "<leader>dts", dap_ui.hover, desc = "Scopes" },
-
-				{ "<leader>ds", group = "Step" },
-				{ "<leader>dso", dap.step_over, desc = "Over" },
-				{ "<leader>dsi", dap.step_into, desc = "Into" },
-				{ "<leader>dsa", dap.step_out, desc = "Out" },
 
 				{ "<leader>n", group = "New", icon = "" },
 				{ "<leader>ns", ":enew<cr>", desc = "Scratch file", icon = "󱞂" },
 				{ "<leader>nf", create_file_in_project, desc = "File", icon = "" },
 
 				{ "<leader>o", group = "Open", icon = "" },
-				{ "<leader>ob", ":Yazi<cr>", desc = "Browse File" },
-				{ "<leader>op", group = "Project" },
-				{ "<leader>of", telescope.find_files, desc = "File" },
+				{ "<leader>oe", ":Yazi<cr>", desc = "Explorer" },
+				{ "<leader>og", git, desc = "Git" },
+				{ "<leader>op", postman, desc = "Postman", icon = { icon = "", color = "yellow" } },
 
-				{ "<leader>e", group = "Edit", icon = "" },
-				{ "<leader>er", vim.lsp.buf.rename, desc = "Refactor" },
-				{ "<leader>ef", group = "File" },
-				{ "<leader>efq", ":hol<CR>", desc = "Cancel" },
-				{ "<leader>eff", telescope.live_grep, desc = "Find" },
+				{ "<leader>e", group = "Env", icon = "" },
+				{ "<leader>e<CR>", ":EcologPeek<CR>", desc = "Show variable", icon = "󱈅" },
+				{ "<leader>es", ":EcologSelect<CR>", desc = "Switch Enviroment", icon = "" },
+				{ "<leader>ey", ":EcologCopy<CR>", desc = "Yank variable", icon = "" },
+
+				{ "<leader>f", group = "Find", icon = "" },
+				{ "<leader>fr", vim.lsp.buf.rename, desc = "Refactor" },
+				{ "<leader>ff", telescope.find_files, desc = "File" },
+				{ "<leader>fg", telescope.live_grep, desc = "Grep" },
+				{ "<leader>fe", ":EcologTelescope<CR>", desc = "Find env variable", icon = "" },
 
 				{ "<leader>s", group = "Save", icon = { icon = "", color = "green" } },
 				{ "<leader>ss", ":w<CR>", desc = "Save" },
@@ -162,9 +133,12 @@ return {
 				{ "<leader>`nf", ":terminal<CR>", desc = "Fullscreen", icon = "" },
 				{ "<leader>`ns", terminalSmall, desc = "Small", icon = "󱂩" },
 
-				{ "<leader>g", git, desc = "Git" },
-
-				{ "<leader>p", postman, desc = "Api Test" },
+				{ "<leader>g", group = "Go to", icon = { icon = "", color = "green" } },
+				{ "<leader>gd", vim.lsp.buf.definition, desc = "Definition" },
+				{ "<leader>gD", vim.lsp.buf.declaration, desc = "Declaration" },
+				{ "<leader>ge", "<cmd>EcologGoto<cr>", desc = ".env File" },
+				{ "<leader>gi", vim.lsp.buf.implementation, desc = "Implementation" },
+				{ "<leader>gs", telescope.lsp_document_symbols, desc = "Symbols" },
 
 				{ "<leader>q", group = "Quit/Close" },
 				{ "<leader>qy", ":q<CR>", desc = "Yes", icon = { icon = "", color = "green" } },
@@ -172,7 +146,9 @@ return {
 				{ "<leader>qY", ":q!<CR>", desc = "Yes, Im sure!", icon = { icon = "", color = "yellow" } },
 				{ "<leader>qn", desc = "No", icon = { icon = "󰜺", color = "red" } },
 
-				{ "<leader>v", group = "View" },
+				{ "<leader>v", group = "View", icon = "" },
+				{ "<leader>vw", ":set wrap!<CR>", desc = "Toggle wrap line" },
+
 				{ "<leader>vs", group = "Split" },
 				{ "<leader>vsh", "split<CR>", desc = "Horizontal", icon = "" },
 				{ "<leader>vsv", ":vsplit<CR>", desc = "Vertical", icon = "" },
@@ -182,13 +158,37 @@ return {
 				{ "<leader>vtl", ":tabprev<cr>", desc = "next", icon = "" },
 				{ "<leader>vtn", ":tabnew<cr>", desc = "new", icon = "󰝜" },
 				{ "<leader>vtq", ":tabclose<cr>", desc = "close", icon = "󰭌" },
-				{ "<leader>vt", group = "tabs" },
 
-				{ "<leader>?", ":VimMoves<CR>", desc = "Help", icon = "󰞋" },
 				{
 					mode = { "t" },
 					{ "C<leader>q", closeTerminal, desc = "Quit" },
 					{ "C<leader>f", toggleFullscreenTerminal, desc = "Fullscreen" },
+				},
+				{
+
+					mode = { "v" },
+					{ "<leader>s", group = "Silicon" },
+					{
+						"<leader>sc",
+						function()
+							require("nvim-silicon").clip()
+						end,
+						desc = "Copy code screenshot to clipboard",
+					},
+					{
+						"<leader>sf",
+						function()
+							require("nvim-silicon").file()
+						end,
+						desc = "Save code screenshot as file",
+					},
+					{
+						"<leader>ss",
+						function()
+							require("nvim-silicon").shoot()
+						end,
+						desc = "Create code screenshot",
+					},
 				},
 			})
 
@@ -361,7 +361,7 @@ return {
 			if vim.fn.filereadable(pkg_path) == 1 then
 				wk.add({
 					{ "<leader>r", group = "Run", icon = { icon = "", color = "green" } },
-					{ "<leader>rs", ":NpmScripts<CR>", desc = "Scripts", icon = { icon = "󰯁", color = "yellow" } },
+					{ "<leader>rs", ":Nodescope<CR>", desc = "Scripts", icon = { icon = "󰯁", color = "yellow" } },
 					{ "<leader>rp", group = "Packages", icon = { icon = "󰏓", color = "green" } },
 					{ "<leader>rp", ":!npm install<CR>", desc = "Install", icon = { icon = "󰏔", color = "blue" } },
 					{ "<leader>rd", ":!npm update<CR>", desc = "Update", icon = { icon = "󰏕", color = "green" } },
@@ -546,15 +546,9 @@ return {
 				wk.show("C<leader>")
 			end)
 
-			vim.keymap.set("n", "<C-.>", function()
-				vim.lsp.buf.hover({
-					border = "rounded",
-					winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
-				})
+			vim.keymap.set("n", "<CR>", function()
+				vim.lsp.buf.hover()
 			end, { noremap = true, silent = true, desc = "LSP Hover" })
-			vim.keymap.set("n", "w", function()
-				require("flash").toggle()
-			end)
 
 			vim.keymap.set("n", "<C-d>", "<C-d>zz")
 			vim.keymap.set("n", "<C-u>", "<C-u>zz")

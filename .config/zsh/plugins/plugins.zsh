@@ -40,7 +40,7 @@ export FZF_DEFAULT_OPTS="--style full \
 --color=selected-bg:#45475A \
 --color=border:#313244,label:#CDD6F4"
 export FZF_CTRL_T_OPTS="--preview '[[ -d {} ]] && lsd --color=always --icon=always --git --tree {} || bat -n --color=always --line-range :500 {}'"
-export FZF_ALT_C_OPTS="--preview 'lsd --color=always --icon=always --tree {} | head -200'"
+export FZF_ALT_C_OPTS="--preview 'lsd --color=always --icon=always --tree {}| head -200'"
 
 # Fuzzy-sys
 
@@ -51,9 +51,9 @@ source /home/msafro12/.config/zsh/plugins/fuzzy-sys/fuzzy-sys.plugin.zsh
 source /home/msafro12/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # SDKMan
-
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/msafro12/.sdkman"
+[[ -s "/home/msafro12/.sdkman/bin/sdkman-init.sh" ]] && source "/home/msafro12/.sdkman/bin/sdkman-init.sh"
 
 # Node Version Manager
 

@@ -12,14 +12,14 @@
       "6": "",
       "7": "",
       "8": "",
-      "9": ""
+      "9": "",
     },
     "width": null,
     "height": null,
     "padding": {
       "top": 0,
       "left": 4,
-      "right": 4
+      "right": 4,
     },
     "printRemaining": true,
     "preserveAspectRatio": true,
@@ -27,8 +27,8 @@
     "position": "left",
     "chafa": {
       "fgOnly": false,
-      "symbols": "block+border+space-wide-inverted"
-    }
+      "symbols": "block+border+space-wide-inverted",
+    },
   },
   "display": {
     "stat": false,
@@ -38,85 +38,82 @@
     "hideCursor": false,
     "separator": ": ",
     "color": {
-      "keys": "#cba6f7",
+      "keys": "#f38ba8",
       "title": "",
       "output": "#89b4fa",
-      "separator": ""
+      "separator": "black",
     },
     "brightColor": true,
     "duration": {
       "abbreviation": false,
-      "spaceBeforeUnit": "default"
+      "spaceBeforeUnit": "default",
     },
     "size": {
       "maxPrefix": "YB",
       "binaryPrefix": "iec",
       "ndigits": 2,
-      "spaceBeforeUnit": "default"
+      "spaceBeforeUnit": "default",
     },
     "temp": {
-      "unit": "D",
+      "unit": "C",
       "ndigits": 1,
       "color": {
-        "green": "32",
-        "yellow": "93",
-        "red": "91"
-      },
-      "spaceBeforeUnit": "default"
-    },
-    "percent": {
-      "type": [
-        "num",
-        "num-color"
-      ],
-      "ndigits": 0,
-      "color": {
-        "green": "32",
-        "yellow": "93",
-        "red": "91"
+        "green": "green",
+        "yellow": "yellow",
+        "red": "red",
       },
       "spaceBeforeUnit": "default",
-      "width": 0
+    },
+    "percent": {
+      "type": ["num", "num-color"],
+      "ndigits": 0,
+      "color": {
+        "green": "green",
+        "yellow": "yellow",
+        "red": "red",
+      },
+      "spaceBeforeUnit": "default",
+      "width": 0,
     },
     "bar": {
       "char": {
         "elapsed": "■",
-        "total": "-"
+        "total": "-",
       },
       "border": {
         "left": "[ ",
         "right": " ]",
         "leftElapsed": "",
-        "rightElapsed": ""
+        "rightElapsed": "",
       },
       "color": {
         "elapsed": "auto",
         "total": "97",
-        "border": "97"
+        "border": "97",
       },
-      "width": 10
+      "width": 10,
     },
     "fraction": {
-      "ndigits": 2
+      "ndigits": 2,
     },
     "noBuffer": false,
     "key": {
-      "width": 23,
+      "width": 25,
       "type": "string",
-      "paddingLeft": 0
+      "paddingLeft": 0,
     },
     "freq": {
       "ndigits": 2,
-      "spaceBeforeUnit": "default"
+      "spaceBeforeUnit": "default",
     },
-    "constants": []
+    "constants": [],
   },
   "general": {
     "thread": true,
     "processingTimeout": 5000,
     "detectVersion": true,
     "playerName": "",
-    "dsForceDrm": false
+    "dsForceDrm": false,
   },
   "modules": [
     {
@@ -124,36 +121,37 @@
       "keyIcon": "",
       "fqdn": false,
       "color": {
-        "user": "#eba0ac",
+        "user": "red",
         "at": "white",
-        "host": "blue"
-      }
+        "host": "blue",
+      },
+      "format": " : {user-name-colored}@{host-name-colored} '{full-user-name}'",
     },
     {
       "type": "separator",
-      "string": "",
-      "outputColor": "",
-      "times": 0
+      "string": "━",
+      "outputColor": "black",
+      "times": 56,
     },
     {
       "type": "host",
-      "key":"╭ Płyta Główna",
-      "keyIcon": "󰌢"
+      "key": "╭  Płyta Główna",
+      "keyIcon": "",
     },
     {
       "type": "BIOS",
-      "key": "├ Wersja BIOSu"
+      "key": "├  Wersja BIOSu",
     },
     {
       "type": "cpu",
-      "key": "├ Procesor",
+      "key": "├  Procesor",
       "keyIcon": "",
       "temp": false,
-      "showPeCoreCount": false
+      "showPeCoreCount": false,
     },
     {
       "type": "gpu",
-      "key": "├ Karta Graficzna",
+      "key": "├ 󰢮 Karta Graficzna",
       "keyIcon": "󰾲",
       "driverSpecific": false,
       "detectionMethod": "pci",
@@ -162,29 +160,29 @@
       "percent": {
         "green": 50,
         "yellow": 80,
-        "type": 0
-      }
+        "type": 0,
+      },
     },
     {
       "type": "memory",
-      "key": "╰ Pamięć Fizyczna", 
+      "key": "╰  Pamięć Fizyczna",
       "keyIcon": "",
       "percent": {
         "green": 50,
         "yellow": 80,
-        "type": 0
-      }
+        "type": 0,
+      },
     },
     "break",
     {
       "type": "os",
-      "key": "╭ System Operacyjny",
-      "keyIcon": ""
+      "key": "╭ 󰌽 System Operacyjny",
+      "keyIcon": "",
     },
     {
       "type": "kernel",
-      "key": "├ Jądro systemu",
-      "keyIcon": ""
+      "key": "├ 󱡊 Jądro systemu",
+      "keyIcon": "",
     },
     // {
     //   "type": "uptime",
@@ -192,12 +190,10 @@
     // },
     {
       "type": "packages",
-      "key": "├ Paczki",
+      "key": "├  Paczki",
       "keyIcon": "󰏖",
-      "disabled": [
-        "apk"
-      ],
-      "combined": false
+      "disabled": ["apk"],
+      "combined": false,
     },
     // {
     //   "type": "shell",
@@ -212,8 +208,8 @@
     // },
     {
       "type": "de",
-      "key": "├ Środowisko pulpitu",
-      "keyIcon": ""
+      "key": "├ 󰨇 Środowisko pulpitu",
+      "keyIcon": "",
     },
     // {
     //   "type": "wm",
@@ -226,8 +222,9 @@
     // },
     {
       "type": "theme",
-      "key": "├ Motywy",
-      "keyIcon": "󰉼"
+      "key": "├ 󱥚 Motywy",
+      "keyIcon": "󰉼",
+      "format": "{theme1}",
     },
     // {
     //   "type": "icons",
@@ -243,8 +240,8 @@
     // },
     {
       "type": "terminal",
-      "key": "╰ Terminal",
-      "keyIcon": ""
+      "key": "╰  Terminal",
+      "keyIcon": "",
     },
     // {
     //   "type": "terminalfont",
@@ -321,12 +318,9 @@
       "symbol": "circle",
       "paddingLeft": 0,
       "block": {
-        "width": 3,
-        "range": [
-          0,
-          15
-        ]
-      }
-    }
-  ]
+        "width": 1,
+        "range": [2, 15],
+      },
+    },
+  ],
 }

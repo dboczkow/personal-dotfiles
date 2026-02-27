@@ -5,6 +5,7 @@ return {
 			local null_ls = require("null-ls")
 			null_ls.setup({
 				sources = {
+					null_ls.builtins.completion.spell,
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.prettierd,
 					null_ls.builtins.formatting.bibtex_tidy,
@@ -12,14 +13,17 @@ return {
 				on_attach = function(client, bufnr)
 					if client.supports_method("textDocument/formatting") then
 						vim.api.nvim_clear_autocmds({
-							group = augroup,
 							buffer = bufnr,
 						})
 						vim.api.nvim_create_autocmd("BufWritePre", {
-							group = augroup,
 							buffer = bufnr,
 							callback = function()
-								vim.lsp.buf.format({ bufnr = bufnr })
+								vim.lsp.buf.format({
+									bufnr = bufnr,
+									filter = function(client)
+										return client.name == "null-ls" -- tylko null-ls (czyli prettierd, stylua)
+									end,
+								})
 							end,
 						})
 					end

@@ -4,11 +4,6 @@ return {
 		branch = "v1",
 		-- Optional: you can add some keybindings
 		-- (I personally use lspsaga so check out lspsaga integration or lsp integration for a smoother experience without separate keybindings)
-		keys = {
-			{ "<leader>ge", "<cmd>EcologGoto<cr>", desc = "Go to env file" },
-			{ "<leader>ep", "<cmd>EcologPeek<cr>", desc = "Ecolog peek variable" },
-			{ "<leader>es", "<cmd>EcologSelect<cr>", desc = "Switch env file" },
-		},
 		-- Lazy loading is done internally
 		lazy = false,
 		opts = {
@@ -38,10 +33,10 @@ return {
 				},
 				modules = {
 					cmp = true, -- Enabled to mask values in completion
-					peek = false, -- Enable to mask values in peek view
+					peek = true, -- Enable to mask values in peek view
 					files = true, -- Enabled to mask values in file buffers
-					telescope = false, -- Enable to mask values in telescope integration
-					telescope_previewer = false, -- Enable to mask values in telescope preview buffers
+					telescope = true, -- Enable to mask values in telescope integration
+					telescope_previewer = true, -- Enable to mask values in telescope preview buffers
 					fzf = false, -- Enable to mask values in fzf picker
 					fzf_previewer = false, -- Enable to mask values in fzf preview buffers
 					snacks_previewer = false, -- Enable to mask values in snacks previewer

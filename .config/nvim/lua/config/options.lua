@@ -1,79 +1,74 @@
--- Testóje spell czeking --
+-- Plik ten zawiera główne opcje konfiguracyjne dla Neovim.
+-- Opcje są podzielone na kategorie dla lepszej czytelności.
 
--- Indentation
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.cindent = false
-vim.opt.shiftwidth = 2
-vim.opt.softtabstop = 2
-vim.opt.tabstop = 2
-vim.opt.expandtab = true
+-- Indentacja
+vim.opt.autoindent = true -- Automatyczne wcięcia, które kopiują wcięcia z poprzedniej linii.
+vim.opt.smartindent = true -- Inteligentne wcięcia, które reagują na składnię języka.
+vim.opt.cindent = false -- Wyłącza wcięcia w stylu C, `smartindent` jest preferowany.
+vim.opt.shiftwidth = 2 -- Liczba spacji używana do wcięć (np. dla operacji >>, <<).
+vim.opt.softtabstop = 2 -- Liczba spacji, którą wstawia klawisz Tab w trybie wstawiania.
+vim.opt.tabstop = 2 -- Liczba spacji, na jaką jest renderowana tabulacja.
+vim.opt.expandtab = true -- Używaj spacji zamiast tabulacji.
 
--- File handling
-vim.opt.autoread = true
-vim.opt.autowrite = true
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undofile = true
-vim.opt.undodir = os.getenv("HOME") .. "/.cache/vim/history"
-vim.opt.encoding = "utf-8"
+-- Zarządzanie plikami
+vim.opt.autoread = true -- Automatycznie wczytuj plik, jeśli został zmieniony na zewnątrz Neovim.
+vim.opt.autowrite = true -- Automatycznie zapisuj plik przy niektórych komendach (np. :next).
+vim.opt.swapfile = false -- Wyłącza pliki wymiany (.swp).
+vim.opt.backup = false -- Wyłącza tworzenie plików zapasowych.
+vim.opt.undofile = true -- Włącza trwałą historię cofania (undo).
+vim.opt.undodir = os.getenv("HOME") .. "/.cache/vim/history" -- Katalog do przechowywania plików historii cofania.
+vim.opt.encoding = "utf-8" -- Ustawia domyślne kodowanie plików na UTF-8.
 
--- Search
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+-- Wyszukiwanie
+vim.opt.ignorecase = true -- Ignoruj wielkość liter podczas wyszukiwania.
+vim.opt.smartcase = true -- Jeśli wzorzec wyszukiwania zawiera wielkie litery, wyszukiwanie staje się wrażliwe na wielkość liter.
+vim.opt.hlsearch = false -- Nie podświetlaj wszystkich wyników wyszukiwania na stałe.
+vim.opt.incsearch = true -- Podświetlaj wyniki wyszukiwania na bieżąco podczas wpisywania.
 
--- Command-line
-vim.opt.cmdheight = 1
-vim.opt.updatetime = 50
-vim.opt.timeoutlen = 500
-vim.opt.ttimeoutlen = 10
+-- Wiersz poleceń
+vim.opt.cmdheight = 1 -- Wysokość wiersza poleceń (w liniach).
+vim.opt.updatetime = 300 -- Czas w milisekundach, po którym Neovim zapisuje zawartość bufora na dysk (ważne dla pluginów, które reagują na bezczynność).
+vim.opt.timeoutlen = 500 -- Czas w milisekundach na oczekiwanie na dokończenie sekwencji mapowania.
+vim.opt.ttimeoutlen = 10 -- Czas w milisekundach na oczekiwanie na kody klawiszy terminala.
 
 -- Terminal
-vim.o.shell = "/usr/bin/zsh"
+vim.o.shell = "/usr/bin/zsh" -- Ustawia domyślną powłokę.
 
--- History and completion
-vim.opt.history = 1000
-vim.opt.wildmenu = true
-vim.opt.wildmode = { "longest", "list", "full" }
+-- Historia i uzupełnianie
+vim.opt.history = 1000 -- Liczba poleceń przechowywanych w historii.
+vim.opt.wildmenu = true -- Włącza menu uzupełniania dla poleceń w wierszu poleceń.
+vim.opt.wildmode = { "longest", "list", "full" } -- Definiuje zachowanie uzupełniania w wierszu poleceń.
 
--- Scrolling
-vim.opt.scrolloff = 8
-vim.opt.sidescrolloff = 8
+-- Wsparcie dla myszy
+vim.opt.mouse = "a" -- Włącza wsparcie dla myszy we wszystkich trybach.
 
--- Mouse support
-vim.opt.mouse = "a"
+-- Schowek
+vim.opt.clipboard = "unnamedplus" -- Używaj systemowego schowka (rejestr '+') domyślnie dla operacji kopiowania/wklejania.
 
--- Clipboard
-vim.opt.clipboard = "unnamedplus"
-
--- Hightlight on yank
+-- Podświetlanie skopiowanego tekstu
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("highlight_yank", {}),
-	desc = "Hightlight selection on yank",
+	desc = "Podświetla skopiowany tekst po operacji yank.",
 	pattern = "*",
 	callback = function()
 		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 250 })
 	end,
 })
 
--- Buffer/window options
-vim.opt.hidden = true
-vim.opt.splitright = true
-vim.opt.splitbelow = true
-vim.opt.equalalways = false
+-- Opcje buforów i okien
+vim.opt.hidden = true -- Pozwala na ukrywanie buforów bez zapisywania zmian.
+vim.opt.splitright = true -- Otwieraj nowe okna po prawej stronie.
+vim.opt.splitbelow = true -- Otwieraj nowe okna poniżej.
+vim.opt.equalalways = false -- Nie zmieniaj rozmiaru okien automatycznie po ich otwarciu/zamknięciu.
 
--- Miscellaneous
-vim.opt.errorbells = false
-vim.opt.belloff = "all"
-vim.opt.spell = true
-vim.opt.spelllang = "en_us,pl"
+-- Różne
+vim.opt.errorbells = false -- Wyłącza dźwięk błędu.
+vim.opt.belloff = "all" -- Wyłącza wszystkie dzwonki.
+vim.opt.spell = true -- Włącza sprawdzanie pisowni.
+vim.opt.spelllang = "en_us,pl" -- Ustawia języki do sprawdzania pisowni.
 
-vim.opt.updatetime = 300
+-- Opcje uzupełniania
+vim.opt.completeopt = { "menuone", "noselect", "noinsert" } -- Konfiguruje zachowanie menu uzupełniania.
 
--- Completion options
-vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
-
--- File format detection
-vim.opt.fileformats = { "unix", "dos", "mac" }
+-- Wykrywanie formatu pliku
+vim.opt.fileformats = { "unix", "dos", "mac" } -- Kolejność formatów końca linii do sprawdzenia.
