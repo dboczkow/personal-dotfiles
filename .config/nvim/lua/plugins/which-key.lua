@@ -14,7 +14,6 @@ return {
 
 			local telescope = require("telescope.builtin")
 			local noice = require("noice")
-			local flash = require("flash")
 
 			local function get_project_root()
 				local handle = io.popen("git rev-parse --show-toplevel 2> /dev/null")
@@ -75,6 +74,11 @@ return {
 				vim.cmd("30split")
 				vim.cmd("terminal posting")
 				vim.cmd("startinsert")
+			end
+
+			local toggleInlineHints = function()
+				local inlineHint = vim.lsp.inlay_hint.is_enabled()
+				vim.lsp.inlay_hint.enable(not inlineHint)
 			end
 
 			wk.add({
@@ -147,7 +151,9 @@ return {
 				{ "<leader>qn", desc = "No", icon = { icon = "󰜺", color = "red" } },
 
 				{ "<leader>v", group = "View", icon = "" },
-				{ "<leader>vw", ":set wrap!<CR>", desc = "Toggle wrap line" },
+				{ "<leader>vT", group = "Toggle" },
+				{ "<leader>vTw", ":set wrap!<CR>", desc = "Wrap" },
+				{ "<leader>vTh", toggleInlineHints, desc = "Inlay Hints" },
 
 				{ "<leader>vs", group = "Split" },
 				{ "<leader>vsh", "split<CR>", desc = "Horizontal", icon = "" },
@@ -167,27 +173,28 @@ return {
 				{
 
 					mode = { "v" },
-					{ "<leader>s", group = "Silicon" },
-					{
-						"<leader>sc",
-						function()
-							require("nvim-silicon").clip()
-						end,
-						desc = "Copy code screenshot to clipboard",
-					},
+					{ "<leader>s", group = "Screenshot" },
 					{
 						"<leader>sf",
 						function()
 							require("nvim-silicon").file()
 						end,
-						desc = "Save code screenshot as file",
+						desc = "... to file",
+						icon = {
+							icon = "",
+							color = "green",
+						},
 					},
 					{
 						"<leader>ss",
 						function()
 							require("nvim-silicon").shoot()
 						end,
-						desc = "Create code screenshot",
+						desc = "... clipboard",
+						icon = {
+							icon = "",
+							color = "blue",
+						},
 					},
 				},
 			})

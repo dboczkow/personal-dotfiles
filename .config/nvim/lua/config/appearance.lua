@@ -101,7 +101,8 @@ vim.api.nvim_set_hl(0, "LspInlayHint", {
 })
 -- Dalsze dostosowanie podpowiedzi: kolor jak komentarz, bez tła, kursywa.
 vim.api.nvim_set_hl(0, "LspInlayHint", {
-	fg = vim.api.nvim_get_hl(0, { name = "Comment" }).fg,
+	-- fg = vim.api.nvim_get_hl(0, { name = "Comment" }).fg,
+	fg = "#45475a",
 	bg = "NONE",
 	italic = true,
 })

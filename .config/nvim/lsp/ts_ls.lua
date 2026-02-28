@@ -1,6 +1,32 @@
 local util = require("lspconfig.util")
 
 return {
+	settings = {
+		typescript = {
+			inlayHints = {
+				includeInlayParameterNameHints = "all", -- <- zmień z "none"
+				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = true,
+				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = true,
+			},
+		},
+		javascript = {
+			inlayHints = {
+				includeInlayParameterNameHints = "all",
+				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+				includeInlayVariableTypeHints = true,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = true,
+			},
+		},
+	},
 	default_config = {
 		init_options = { hostInfo = "neovim" },
 		cmd = { "typescript-language-server", "--stdio" },
