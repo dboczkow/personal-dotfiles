@@ -74,5 +74,5 @@ export PATH=$PATH:/home/msafro12/.spicetify
 # Tmux
 
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-  tmux attach-session -t Zeus || tmux new-session -s Zeus
+  tmux attach-session -t $HOST || tmux new-session -s $HOST
 fi
