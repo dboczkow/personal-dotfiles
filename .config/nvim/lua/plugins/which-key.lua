@@ -165,6 +165,8 @@ return {
 				{ "<leader>vtn", ":tabnew<cr>", desc = "new", icon = "󰝜" },
 				{ "<leader>vtq", ":tabclose<cr>", desc = "close", icon = "󰭌" },
 
+				{ "<leader>t", group = "Task" },
+
 				{
 					mode = { "t" },
 					{ "C<leader>q", closeTerminal, desc = "Quit" },
