@@ -1,16 +1,25 @@
 return {
 	{
 		"nvimtools/none-ls.nvim",
+		dependencies = {
+			"jay-babu/mason-null-ls.nvim",
+		},
 		config = function()
+			local mason_null_ls = require("mason-null-ls")
 			local null_ls = require("null-ls")
-			null_ls.setup({
-				sources = {
-					null_ls.builtins.completion.spell,
-					null_ls.builtins.formatting.stylua,
-					null_ls.builtins.formatting.prettierd,
-					null_ls.builtins.formatting.bibtex_tidy,
-					null_ls.builtins.diagnostics.flake8,
+
+			mason_null_ls.setup({
+				ensure_installed = {
+					"stylua",
+					"prettierd",
+					"bibtex-tidy",
+					"flake8",
 				},
+				automatic_installation = true,
+				handlers = {},
+			})
+
+			null_ls.setup({
 				on_attach = function(client, bufnr)
 					if client.supports_method("textDocument/formatting") then
 						vim.api.nvim_clear_autocmds({

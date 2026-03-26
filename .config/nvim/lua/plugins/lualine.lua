@@ -3,6 +3,7 @@ return {
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
+			local cp = require("catppuccin.palettes").get_palette()
 			require("lualine").setup({
 				options = {
 					icons_enabled = true,
@@ -40,7 +41,18 @@ return {
 					lualine_a = { { "mode", separator = { left = "", right = "" } } },
 					lualine_b = { "diff" },
 					lualine_c = {
-
+						{
+							function()
+								local reg = vim.fn.reg_recording()
+								if reg == "" then
+									return ""
+								end -- not recording
+								return "● @" .. reg
+							end,
+							color = { fg = cp.base, bg = cp.red, gui = "bold" }, -- Kolor czerwony
+							padding = { left = 1, right = 1 }, -- Przysunięcie do nazwy pliku
+							separator = { left = "", right = "" },
+						},
 						{
 							"filename",
 							file_status = true, -- Displays file status (readonly status, modified status)
@@ -59,11 +71,26 @@ return {
 								modified = "", -- Text to show when the file is modified.
 								readonly = "󰌾", -- Text to show when the file is non-modifiable or readonly.
 								unnamed = "", -- Text to show for unnamed buffers.
-								newfile = "", -- Text to show for newly created file before first write
+								newfile = "", -- Text to show for newly created file before first write
 							},
+							separator = "",
+						},
+						{
+							"diagnostics",
+							symbols = {
+								error = "󰅚 ",
+								warn = "󰀪 ",
+								info = "󰋽 ",
+								hint = "󰌶 ",
+							},
+							separator = "",
 						},
 					},
-					lualine_x = { "encoding", "fileformat", "filetype" },
+					lualine_x = {
+						"encoding",
+						"fileformat",
+						"filetype",
+					},
 					lualine_y = { "progress" },
 					lualine_z = { { "location", separator = { left = "", right = "" } } },
 				},
@@ -92,14 +119,14 @@ return {
 						},
 					},
 					lualine_c = {},
-					lualine_x = { "location" },
+					lualine_x = {},
 					lualine_y = {},
 					lualine_z = {},
 				},
 				tabline = {},
 				winbar = {},
 				inactive_winbar = {},
-				extensions = {},
+				extensions = { "mason" },
 			})
 		end,
 	},
