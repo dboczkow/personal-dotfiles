@@ -1,22 +1,15 @@
-local util = require 'lspconfig.util'
+---@brief
+---
+--- https://github.com/regen100/cmake-language-server
+---
+--- CMake LSP Implementation
 
+---@type vim.lsp.Config
 return {
-  default_config = {
-    cmd = { 'cmake-language-server' },
-    filetypes = { 'cmake' },
-    root_dir = function(fname)
-      return util.root_pattern('CMakePresets.json', 'CTestConfig.cmake', '.git', 'build', 'cmake')(fname)
-    end,
-    single_file_support = true,
-    init_options = {
-      buildDirectory = 'build',
-    },
-  },
-  docs = {
-    description = [[
-https://github.com/regen100/cmake-language-server
-
-CMake LSP Implementation
-]],
-  },
+	cmd = { "cmake-language-server" },
+	filetypes = { "cmake" },
+	root_markers = { "CMakePresets.json", "CTestConfig.cmake", ".git", "build", "cmake" },
+	init_options = {
+		buildDirectory = "build",
+	},
 }
