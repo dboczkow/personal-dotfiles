@@ -65,15 +65,21 @@ return {
 			end
 
 			local git = function()
-				vim.cmd("vsplit")
-				vim.cmd("terminal lazygit")
-				vim.cmd("startinsert")
+				local cwd = vim.fn.getcwd()
+				-- vim.cmd("vsplit")
+				-- vim.cmd("terminal lazygit")
+				-- vim.cmd("startinsert")
+				local cmd = string.format("tmux split-window -h -c '%s' 'lazygit'", cwd)
+				os.execute(cmd)
 			end
 
 			local postman = function()
-				vim.cmd("30split")
-				vim.cmd("terminal posting")
-				vim.cmd("startinsert")
+				-- vim.cmd("30split")
+				-- vim.cmd("terminal posting")
+				-- vim.cmd("startinsert")
+				local cwd = vim.fn.getcwd()
+				local cmd = string.format("tmux split-window -v -c '%s' 'posting'", cwd)
+				os.execute(cmd)
 			end
 
 			local toggleInlineHints = function()
@@ -154,6 +160,7 @@ return {
 				{ "<leader>vT", group = "Toggle" },
 				{ "<leader>vTw", ":set wrap!<CR>", desc = "Wrap" },
 				{ "<leader>vTh", toggleInlineHints, desc = "Inlay Hints" },
+				{ "<leader>vTb", ":GitBlameToggle", desc = "Git Blame" },
 
 				{ "<leader>vs", group = "Split" },
 				{ "<leader>vsh", "split<CR>", desc = "Horizontal", icon = "" },

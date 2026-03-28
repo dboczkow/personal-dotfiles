@@ -39,7 +39,13 @@ return {
 				},
 				sections = {
 					lualine_a = { { "mode", separator = { left = "", right = "" } } },
-					lualine_b = { "diff" },
+					lualine_b = {
+						{
+							"diff",
+							colored = true, -- Displays a colored diff status if set to true
+							symbols = { added = " ", modified = " ", removed = " " }, -- Changes the symbols used by the diff.
+						},
+					},
 					lualine_c = {
 						{
 							function()

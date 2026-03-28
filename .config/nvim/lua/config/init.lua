@@ -6,3 +6,4 @@ require("config.appearance") -- Wygląd
 require("config.options") -- Główne opcje
 require("config.lsp") -- Konfiguracja LSP
 require("config.filetype_detector") -- Wykrywanie typów plików
+require("config.autocmd")

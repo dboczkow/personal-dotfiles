@@ -78,6 +78,13 @@ return {
 			fuzzy = {
 				implementation = "prefer_rust_with_warning",
 			},
+			cmdline = {
+				completion = {
+					menu = {
+						auto_show = true,
+					},
+				},
+			},
 		},
 		opts_extend = { "sources.default" },
 	},
