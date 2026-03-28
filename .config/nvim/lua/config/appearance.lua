@@ -18,7 +18,7 @@ vim.opt.number = true -- Pokazuje numery linii.
 vim.opt.relativenumber = true -- Pokazuje numery linii relatywnie do pozycji kursora.
 
 -- Podświetlenie bieżącej linii i kolumny.
-vim.opt.cursorline = true -- Podświetla linię, w której znajduje się kursor.
+vim.opt.cursorline = false -- Podświetla linię, w której znajduje się kursor.
 vim.opt.cursorcolumn = false -- Wyłącza podświetlanie kolumny kursora dla lepszej wydajności.
 
 -- Konfiguracja wyświetlania niewidocznych znaków.

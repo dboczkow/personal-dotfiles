@@ -46,12 +46,18 @@ return {
 				auto_integrations = true,
 				integrations = {
 					cmp = true,
-					gitsigns = true,
-					nvimtree = true,
-					notify = false,
+					gitblame = true,
 					mini = {
 						enabled = true,
 						indentscope_color = "",
+					},
+					telescope = {
+						enabled = true,
+					},
+					flash = true,
+					noice = true,
+					blink_cmp = {
+						style = "bordered",
 					},
 					-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 				},

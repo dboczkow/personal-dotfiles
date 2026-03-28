@@ -5,21 +5,21 @@ local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 -- Sprawdza, czy lazy.nvim jest już zainstalowany.
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  -- Jeśli nie, klonuje repozytorium lazy.nvim z GitHub.
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  -- Używa `--filter=blob:none` i `--branch=stable` dla szybszego klonowania.
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  -- Sprawdza, czy klonowanie się powiodło.
-  if vim.v.shell_error ~= 0 then
-    -- Jeśli wystąpił błąd, wyświetla komunikat i kończy działanie Neovim.
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
+	-- Jeśli nie, klonuje repozytorium lazy.nvim z GitHub.
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	-- Używa `--filter=blob:none` i `--branch=stable` dla szybszego klonowania.
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	-- Sprawdza, czy klonowanie się powiodło.
+	if vim.v.shell_error ~= 0 then
+		-- Jeśli wystąpił błąd, wyświetla komunikat i kończy działanie Neovim.
+		vim.api.nvim_echo({
+			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+			{ out, "WarningMsg" },
+			{ "\nPress any key to exit..." },
+		}, true, {})
+		vim.fn.getchar()
+		os.exit(1)
+	end
 end
 
 -- Dodaje ścieżkę do lazy.nvim do `runtimepath`, aby Neovim mógł go załadować.
@@ -32,16 +32,19 @@ vim.g.maplocalleader = "\\" -- Lokalny lider dla mapowań specyficznych dla bufo
 
 -- Konfiguracja i uruchomienie lazy.nvim.
 require("lazy").setup({
-  -- `spec` definiuje, skąd ładować specyfikacje pluginów.
-  spec = {
-    -- Importuje wszystkie pluginy z pliku `lua/plugins/init.lua` (lub `lua/plugins.lua`).
-    { import = "plugins" },
-  },
-  -- Dodatkowe opcje konfiguracyjne dla lazy.nvim.
-  install = {
-    -- Ustawia schemat kolorów używany podczas instalacji pluginów.
-    colorscheme = { "habamax" },
-  },
-  -- Włącza automatyczne sprawdzanie dostępności aktualizacji pluginów.
-  checker = { enabled = true },
+	-- `spec` definiuje, skąd ładować specyfikacje pluginów.
+	spec = {
+		-- Importuje wszystkie pluginy z pliku `lua/plugins/init.lua` (lub `lua/plugins.lua`).
+		{ import = "plugins" },
+	},
+	-- Dodatkowe opcje konfiguracyjne dla lazy.nvim.
+	install = {
+		-- Ustawia schemat kolorów używany podczas instalacji pluginów.
+		colorscheme = { "catppuccin" },
+	},
+	-- Włącza automatyczne sprawdzanie dostępności aktualizacji pluginów.
+	checker = { enabled = true },
+	ui = {
+		border = "rounded",
+	},
 })

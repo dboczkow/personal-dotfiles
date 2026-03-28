@@ -14,6 +14,7 @@ return {
 
 			local telescope = require("telescope.builtin")
 			local noice = require("noice")
+			local flash = require("flash")
 
 			local function get_project_root()
 				local handle = io.popen("git rev-parse --show-toplevel 2> /dev/null")
@@ -87,6 +88,11 @@ return {
 				vim.lsp.inlay_hint.enable(not inlineHint)
 			end
 
+			local toggleCursorLine = function()
+				local cursorLine = vim.opt.cursorline
+				vim.opt.cursorline = not cursorLine
+			end
+
 			wk.add({
 				{ "<leader>", desc = "Menu" },
 				{ "<leader>c", group = "Code" },
@@ -106,6 +112,12 @@ return {
 				{ "<leader>oe", ":Yazi<cr>", desc = "Explorer" },
 				{ "<leader>og", git, desc = "Git" },
 				{ "<leader>op", postman, desc = "Postman", icon = { icon = "", color = "yellow" } },
+				{
+					"<leader>on",
+					":Noice pick<cr>",
+					desc = "Notifications",
+					icon = { icon = "󱅫 ", color = "blue" },
+				},
 
 				{ "<leader>e", group = "Env", icon = "" },
 				{ "<leader>e<CR>", ":EcologPeek<CR>", desc = "Show variable", icon = "󱈅" },
@@ -144,7 +156,7 @@ return {
 				{ "<leader>`ns", terminalSmall, desc = "Small", icon = "󱂩" },
 
 				{ "<leader>g", group = "Go to", icon = { icon = "", color = "green" } },
-				{ "<leader>gd", vim.lsp.buf.definition, desc = "Definition" },
+				{ "<leader>gd", ":PreviewDefinition<cr>", desc = "Definition" },
 				{ "<leader>gD", vim.lsp.buf.declaration, desc = "Declaration" },
 				{ "<leader>ge", "<cmd>EcologGoto<cr>", desc = ".env File" },
 				{ "<leader>gi", vim.lsp.buf.implementation, desc = "Implementation" },
@@ -160,6 +172,7 @@ return {
 				{ "<leader>vT", group = "Toggle" },
 				{ "<leader>vTw", ":set wrap!<CR>", desc = "Wrap" },
 				{ "<leader>vTh", toggleInlineHints, desc = "Inlay Hints" },
+				{ "<leader>vTc", toggleCursorLine, desc = "Cursor Line" },
 				{ "<leader>vTb", ":GitBlameToggle", desc = "Git Blame" },
 
 				{ "<leader>vs", group = "Split" },
@@ -172,8 +185,23 @@ return {
 				{ "<leader>vtn", ":tabnew<cr>", desc = "new", icon = "󰝜" },
 				{ "<leader>vtq", ":tabclose<cr>", desc = "close", icon = "󰭌" },
 
-				{ "<leader>t", group = "Task" },
-
+				{ "<leader>j", group = "Jump", icon = { icon = "", color = "yellow" } },
+				{
+					"<leader>js",
+					function()
+						flash.jump()
+					end,
+					desc = "Search",
+					icon = { icon = "", color = "blue" },
+				},
+				{
+					"<leader>jt",
+					function()
+						flash.treesitter()
+					end,
+					desc = "Treesitter",
+					icon = { icon = "󱘎", color = "green" },
+				},
 				{
 					mode = { "t" },
 					{ "C<leader>q", closeTerminal, desc = "Quit" },
