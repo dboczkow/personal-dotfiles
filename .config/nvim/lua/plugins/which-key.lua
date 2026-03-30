@@ -67,17 +67,17 @@ return {
 
 			local git = function()
 				local cwd = vim.fn.getcwd()
-				-- vim.cmd("vsplit")
-				-- vim.cmd("terminal lazygit")
-				-- vim.cmd("startinsert")
 				local cmd = string.format("tmux split-window -h -c '%s' 'lazygit'", cwd)
 				os.execute(cmd)
 			end
 
+			local twtui = function()
+				local cwd = vim.fn.getcwd()
+				local cmd = string.format("tmux split-window -h -c '%s' 'taskwarrior-tui'", cwd)
+				os.execute(cmd)
+			end
+
 			local postman = function()
-				-- vim.cmd("30split")
-				-- vim.cmd("terminal posting")
-				-- vim.cmd("startinsert")
 				local cwd = vim.fn.getcwd()
 				local cmd = string.format("tmux split-window -v -c '%s' 'posting'", cwd)
 				os.execute(cmd)
@@ -112,6 +112,7 @@ return {
 				{ "<leader>oe", ":Yazi<cr>", desc = "Explorer" },
 				{ "<leader>og", git, desc = "Git" },
 				{ "<leader>op", postman, desc = "Postman", icon = { icon = "", color = "yellow" } },
+				{ "<leader>ot", twtui, desc = "Tasks", icon = "" },
 				{
 					"<leader>on",
 					":Noice pick<cr>",
@@ -184,6 +185,12 @@ return {
 				{ "<leader>vtl", ":tabprev<cr>", desc = "next", icon = "" },
 				{ "<leader>vtn", ":tabnew<cr>", desc = "new", icon = "󰝜" },
 				{ "<leader>vtq", ":tabclose<cr>", desc = "close", icon = "󰭌" },
+
+				{ "<leader>t", group = "Tasks", icon = "󱉨" },
+				{ "<leader>ta", ":TaskAdd<cr>", desc = "Add", icon = { icon = "󰝑", color = "blue" } },
+				{ "<leader>tc", ":TaskDone<cr>", desc = "Complete", icon = { icon = "󰅎", color = "green" } },
+				{ "<leader>tt", ":TaskStart<cr>", desc = "Track", icon = { icon = "󱛢", color = "yellow" } },
+				{ "<leader>ts", ":TaskStop<cr>", desc = "Stop", icon = { icon = "󱘜", color = "red" } },
 
 				{ "<leader>j", group = "Jump", icon = { icon = "", color = "yellow" } },
 				{

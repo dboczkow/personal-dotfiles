@@ -25,6 +25,7 @@ alias tree="lsd --tree"
 alias daemons="fuzzy-sys"
 alias ping="gping --clear"
 alias postman="posting"
+alias tt="taskwarrior-tui"
 ## Suffix Aliases ##
 alias -s md="glow -p"
 

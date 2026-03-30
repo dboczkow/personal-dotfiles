@@ -172,12 +172,12 @@
       #ifdef LAYER_Lower
       Lower {
         bindings = <
-          GRY WHT GOL GRN GOL                                             RED GRY WHT ___ ___
-          ___ ___ ___ ___ ___ ___                                     C01 ___ WHT WHT ___ ___
+          GRY WHT GOL GRN GOL                                             RED GRY WHT WHT WHT
+          ___ ___ ___ ___ ___ ___                                     C01 ___ WHT WHT ___ WHT
           ___ ___ ___ ___ ___ ___                                     ___ ___ ___ ___ ___ ___
           ___ ___ ___ ___ ___ ___                                     WHT WHT WHT WHT ___ ___
-          ___ ___ ___ ___ ___ ___     ___ ___ ___     ___ ___ WHT     ___ ___ ___ ___ ___ ___
-          ___ RED ___ ___ ___         ___ ___ ___     ___ ___ ___         ___ ___ ___ ___ ___
+          ___ ___ ___ ___ ___ ___     WHT WHT WHT     ___ ___ WHT     ___ ___ ___ ___ ___ ___
+          ___ RED ___ ___ ___         ___ ___ WHT     ___ ___ ___         ___ ___ ___ ___ ___
         >;
         layer-id = <LAYER_Lower>;
       };

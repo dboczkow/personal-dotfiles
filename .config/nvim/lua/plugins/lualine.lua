@@ -4,6 +4,7 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			local cp = require("catppuccin.palettes").get_palette()
+			local task_tracker = require("custom.betterwarrior")
 			require("lualine").setup({
 				options = {
 					icons_enabled = true,
@@ -93,6 +94,7 @@ return {
 						},
 					},
 					lualine_x = {
+						{ task_tracker.get_task_status, separator = "", color = { fg = cp.green } },
 						"encoding",
 						"fileformat",
 						"filetype",
