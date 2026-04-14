@@ -172,12 +172,12 @@
       #ifdef LAYER_Lower
       Lower {
         bindings = <
-          GRY WHT GOL GRN GOL                                             RED GRY WHT WHT WHT
-          ___ ___ ___ ___ ___ ___                                     C01 ___ WHT WHT ___ WHT
+          BLU WHT GOL GRN GOL                                             RED GRY WHT WHT WHT
+          ___ ___ ___ ___ ___ ___                                     C07 RED ___ ___ ___ WHT
           ___ ___ ___ ___ ___ ___                                     ___ ___ ___ ___ ___ ___
           ___ ___ ___ ___ ___ ___                                     WHT WHT WHT WHT ___ ___
-          ___ ___ ___ ___ ___ ___     WHT WHT WHT     ___ ___ WHT     ___ ___ ___ ___ ___ ___
-          ___ RED ___ ___ ___         ___ ___ WHT     ___ ___ ___         ___ ___ ___ ___ ___
+          ___ ___ ___ ___ ___ ___     WHT WHT WHT     WHT WHT ___     ___ WHT ___ ___ ___ ___
+          ___ GRN ___ ___ ___         WHT WHT WHT     WHT WHT WHT         ___ ___ ___ ___ ___
         >;
         layer-id = <LAYER_Lower>;
       };
@@ -186,28 +186,57 @@
       #ifdef LAYER_Gaming
       Gaming {
         bindings = <
-          C01 C02 C03 C04 C05                                             ___ ___ ___ ___ ___
+          WHT C02 C03 C04 C05                                             ___ ___ ___ ___ ___
           C02 C03 C04 C05 C06 C07                                     ___ ___ ___ ___ ___ ___
           C03 C04 C05 WHT C07 C08                                     ___ ___ ___ ___ ___ ___
           C04 C05 WHT WHT WHT C09                                     ___ ___ ___ ___ ___ ___
-          C05 C06 C07 C08 C09 C10     C11 C12 C13     GRN ___ ___     ___ ___ ___ ___ ___ ___
-          C06 C07 C08 C09 C10         C11 WHT C13     ___ ___ ___         ___ ___ ___ ___ ___
+          C05 C06 C07 C08 C09 C10     C11 C12 C13     ___ ___ ___     ___ ___ ___ ___ ___ ___
+          C06 C07 C08 C09 C10         C11 WHT C13     ___ ___ WHT         ___ ___ ___ ___ ___
         >;
         layer-id = <LAYER_Gaming>;
+      };
+      #endif
+
+      #ifdef LAYER_GamingArrow
+      GamingArrow {
+        bindings = <
+          WHT C02 C03 C04 C05                                             ___ ___ ___ ___ ___
+          C02 C03 C04 C05 C06 C07                                     ___ ___ ___ ___ ___ ___
+          C03 C04 C05 GRN C07 C08                                     ___ ___ ___ ___ ___ ___
+          C04 C05 GRN GRN GRN C09                                     ___ ___ ___ ___ ___ ___
+          C05 C06 C07 C08 C09 C10     C11 C12 C13     ___ ___ ___     ___ ___ ___ ___ ___ ___
+          C06 C07 C08 C09 C10         C11 WHT C13     ___ ___ WHT         ___ ___ ___ ___ ___
+        >;
+        layer-id = <LAYER_GamingArrow>;
       };
       #endif
       
       #ifdef LAYER_Mouse
       Mouse {
         bindings = <
-          ___ ___ ___ ___ ___                                             ___ ___ ___ ___ ___
+          GDN ___ ___ ___ ___                                             ___ ___ ___ ___ ___
           ___ ___ ___ ___ ___ ___                                     ___ ___ ___ ___ ___ ___
           ___ ___ ___ ___ ___ ___                                     ___ WHT ___ ___ WHT ___
           ___ ___ ___ WHT WHT WHT                                     WHT WHT WHT WHT ___ ___
-          ___ ___ ___ ___ ___ ___     ___ WHT ___     ___ WHT ___     WHT ___ ___ ___ ___ ___
-          ___ ___ ___ ___ ___         ___ ___ ___     ___ ___ ___         ___ ___ ___ ___ ___
+          ___ ___ ___ ___ ___ ___     WHT WHT WHT     WHT ___ WHT     WHT ___ ___ ___ ___ ___
+          ___ ___ ___ ___ ___         WHT WHT WHT     WHT WHT WHT         ___ ___ ___ ___ ___
         >;
         layer-id = <LAYER_Mouse>;
+      };
+      #endif
+
+      #ifdef LAYER_AltPlus
+      AltPlus {
+        bindings = <
+          C01 C02 C03 C04 C05                                             C05 C04 C03 C02 C01
+          C02 C03 C04 C05 C06 C07                                     C07 C06 WHT WHT C03 C02
+          C03 C04 C05 C06 C07 C08                                     C08 C07 C06 C05 C04 C03
+          C04 C05 C06 C07 C08 C09                                     C09 C08 C07 C06 C05 C04
+          C05 C06 C07 C08 C09 C10     C11 C12 C13     C13 C12 C11     C10 C09 C08 C07 C06 C05
+          C06 C07 C08 C09 C10         C11 C12 C13     C13 C12 C11         C10 C09 C08 C07 C06
+ 
+        >;
+        layer-id = <LAYER_AltPlus>;
       };
       #endif
     };

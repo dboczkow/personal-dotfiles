@@ -24,6 +24,7 @@ vim.opt.ignorecase = true -- Ignoruj wielkość liter podczas wyszukiwania.
 vim.opt.smartcase = true -- Jeśli wzorzec wyszukiwania zawiera wielkie litery, wyszukiwanie staje się wrażliwe na wielkość liter.
 vim.opt.hlsearch = false -- Nie podświetlaj wszystkich wyników wyszukiwania na stałe.
 vim.opt.incsearch = true -- Podświetlaj wyniki wyszukiwania na bieżąco podczas wpisywania.
+vim.opt.inccommand = "nosplit"
 
 -- Wiersz poleceń
 vim.opt.cmdheight = 1 -- Wysokość wiersza poleceń (w liniach).

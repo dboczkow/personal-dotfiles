@@ -102,7 +102,9 @@ return {
 				{ "<leader>cf", vim.lsp.buf.format, desc = "Format" },
 				{ "<leader>ct", ":TodoTelescope<CR>", desc = "To Do List" },
 				{ "<leader>cl", telescope.diagnostics, desc = "Lint" },
-				{ "<leader>cs", telescope.spell_suggest, desc = "Spell suggestion" },
+				{ "<leader>cs", group = "Spell" },
+				{ "<leader>css", telescope.spell_suggest, desc = "Spell suggestion" },
+				{ "<leader>csa", "zg", desc = "Add to dictionary" },
 
 				{ "<leader>n", group = "New", icon = "" },
 				{ "<leader>ns", ":enew<cr>", desc = "Scratch file", icon = "󱞂" },

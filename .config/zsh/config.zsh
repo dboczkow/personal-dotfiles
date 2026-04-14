@@ -36,4 +36,4 @@ source /home/msafro12/.config/zsh/aliases.zsh
 source /home/msafro12/.config/zsh/hooks.zsh
 
 ### Start with fastfetch on start for SWAG ###
-fastfetch
+# fastfetch
