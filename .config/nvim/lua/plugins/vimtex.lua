@@ -1,13 +1,25 @@
 return {
 	{
 		"lervag/vimtex",
-		lazy = false, -- we don't want to lazy load VimTeX
-		-- tag = "v2.15", -- uncomment to pin to a specific release
+		lazy = false,
 		init = function()
+			-- Ustawienie silnika na LuaLaTeX
 			vim.g.vimtex_compiler_latexmk_engines = {
 				_ = "-lualatex",
 			}
-			-- VimTeX configuration goes here, e.g.
+
+			-- DODAJ TO: Konfiguracja opcji dla latexmk, w tym -shell-escape
+			vim.g.vimtex_compiler_latexmk = {
+				options = {
+					"-shell-escape",
+					"-verbose",
+					"-file-line-error",
+					"-synctex=1",
+					"-interaction=nonstopmode",
+				},
+			}
+
+			-- Reszta Twojej konfiguracji
 			vim.g.vimtex_view_method = "zathura"
 		end,
 	},

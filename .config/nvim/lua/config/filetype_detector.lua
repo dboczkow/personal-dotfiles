@@ -22,3 +22,11 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 		end
 	end,
 })
+
+-- Automatyczne przełączanie na SCP-Legacy, gdy w ścieżce jest adres Malinki
+vim.api.nvim_create_autocmd("BufReadPre", {
+	pattern = "scp://hestia",
+	callback = function()
+		vim.g.netrw_scp_cmd = "scp -q -O"
+	end,
+})
